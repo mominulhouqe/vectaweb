@@ -10,6 +10,8 @@ import Milestones from "@/components/ui/Milestones";
 
 import MouseFollowAnimation from "@/components/ui/MouseFollowAnimation";
 import NewsletterSection from "@/components/ui/NewsletterSection";
+import OurJourny from "@/components/ui/OurJourny";
+import OurService from "@/components/ui/OurService";
 
 import OurTeam from "@/components/ui/OurTeam";
 import PackageCard from "@/components/ui/PackageCard";
@@ -25,17 +27,19 @@ const HomePage = async () => {
       {/*
       <ShootingStars /> */}
       {/* <SlidingWaves /> */}
-      <MouseFollowAnimation />
       {/* <Banner /> */}
-      <PackageCard />
       {/* <Portfolio /> */}
+      <MouseFollowAnimation />
+      <PackageCard />
+      <OurJourny />
+      <OurService />
       <PortfolioCaseStudy />
       <OurTeam />
       <ChatWidget />
       <Milestones />
       <FAQSection />
       <Contact />
-      <NewsletterSection />
+      {/* <NewsletterSection /> */}
     </div>
   );
 };

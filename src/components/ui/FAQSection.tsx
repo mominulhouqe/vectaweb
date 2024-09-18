@@ -1,8 +1,6 @@
 "use client";
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 
-// FAQ Data with categories for VectaWeb
 const faqs = [
   {
     id: 1,
@@ -41,97 +39,50 @@ const faqs = [
   },
 ];
 
-// FAQ Categories
-const categories = ["All", "Services", "Pricing", "Support", "Payments", "Project Process"];
-
 const FAQSection = () => {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
-  const [searchQuery, setSearchQuery] = useState("");
-  const [activeCategory, setActiveCategory] = useState("All");
-
-  // Filter FAQs based on search query and category
-  const filteredFaqs = faqs.filter(
-    (faq) =>
-      (activeCategory === "All" || faq.category === activeCategory) &&
-      faq.question.toLowerCase().includes(searchQuery.toLowerCase())
-  );
 
   const toggleFAQ = (index: number) => {
     setActiveIndex(activeIndex === index ? null : index);
   };
 
   return (
-    <section id="faq" className="py-20 bg-gray-100 w-full mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+    <section
+      id="faq"
+      className="py-20 bg-gray-100 w-full mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl"
+    >
       <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12 text-gray-800">
         Frequently Asked Questions
       </h2>
 
-      {/* Search Bar */}
-      <div className="max-w-lg mx-auto mb-8">
-        <input
-          type="text"
-          placeholder="Search FAQs..."
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
-          className="w-full p-3 border border-gray-300 rounded-lg relative"
-        />
-      </div>
-
-      {/* Category Filter */}
-      <div className="flex flex-wrap justify-center gap-4 mb-8">
-        {categories.map((category) => (
-          <button
-            key={category}
-            className={`px-4 py-2 rounded-lg relative ${
-              activeCategory === category
-                ? "bg-teal-500 text-white"
-                : "bg-gray-200 text-gray-700"
-            }`}
-            onClick={() => setActiveCategory(category)}
-          >
-            {category}
-          </button>
-        ))}
-      </div>
-
       {/* FAQ List */}
       <div className="max-w-2xl mx-auto">
-        {filteredFaqs.length > 0 ? (
-          filteredFaqs.map((faq, index) => (
-            <div key={faq.id} className="mb-6">
-              <motion.button
-                whileHover={{ scale: 1.02 }}
-                className="w-full text-left bg-gray-200 p-4 rounded-lg focus:outline-none flex justify-between items-center relative"
-                onClick={() => toggleFAQ(index)}
-              >
-                <h3 className="text-base sm:text-lg font-semibold">{faq.question}</h3>
-                <motion.span
-                  animate={{ rotate: activeIndex === index ? 180 : 0 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  {activeIndex === index ? "-" : "+"}
-                </motion.span>
-              </motion.button>
+        {faqs.map((faq, index) => (
+          <div key={faq.id} className="mb-6">
+            <button
+              className="w-full text-left bg-gray-200 p-4 rounded-lg focus:outline-none flex justify-between items-center relative"
+              onClick={() => toggleFAQ(index)}
+            >
+              <h3 className="text-base sm:text-lg font-semibold">
+                {faq.question}
+              </h3>
+              <span>{activeIndex === index ? "-" : "+"}</span>
+            </button>
 
-              <AnimatePresence initial={false}>
-                {activeIndex === index && (
-                  <motion.div
-                    key="content"
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: "auto", opacity: 1 }}
-                    exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.4 }}
-                    className="bg-white p-4 rounded-lg shadow-lg mt-2"
-                  >
-                    <p className="text-sm sm:text-base text-gray-700">{faq.answer}</p>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
-          ))
-        ) : (
-          <p className="text-center text-gray-500">No FAQs found matching your query.</p>
-        )}
+            <>
+              {activeIndex === index && (
+                <div
+                  id={`faq-content-${faq.id}`}
+                  className="bg-white p-4 rounded-lg shadow-lg mt-2"
+                >
+                  <p className="text-sm sm:text-base text-gray-700">
+                    {faq.answer}
+                  </p>
+                </div>
+              )}
+            </>
+          </div>
+        ))}
       </div>
     </section>
   );

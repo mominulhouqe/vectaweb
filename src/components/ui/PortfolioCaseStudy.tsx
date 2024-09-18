@@ -105,7 +105,7 @@ const PortfolioCaseStudy = () => {
           Explore some of the innovative projects we've completed, addressing
           complex challenges with cutting-edge solutions.
         </p>
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {caseStudies.map((study, index) => (
             <motion.div
               key={index}
