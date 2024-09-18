@@ -14,7 +14,7 @@ interface TeamMember {
 }
 
 interface TeamMemberFormProps {
-  member?: TeamMember|undefined|null;
+  member?: TeamMember | undefined | null;
   onSave: () => void;
 }
 
@@ -35,11 +35,17 @@ const TeamMemberForm: React.FC<TeamMemberFormProps> = ({ member, onSave }) => {
     e.preventDefault();
     try {
       if (member) {
-        await axios.put(`http://localhost:5000/api/teamMembers/${member._id}`, formData);
+        await axios.put(
+          `https://vectaweb-backend.vercel.app/api/teamMembers/${member._id}`,
+          formData
+        );
       } else {
-        await axios.post("http://localhost:5000/api/teamMembers", formData);
+        await axios.post(
+          "https://vectaweb-backend.vercel.app/api/teamMembers",
+          formData
+        );
       }
-      if (onSave && typeof onSave === 'function') {
+      if (onSave && typeof onSave === "function") {
         onSave(); // Call the onSave function if provided
       }
       // Clear the form data
@@ -56,7 +62,10 @@ const TeamMemberForm: React.FC<TeamMemberFormProps> = ({ member, onSave }) => {
   };
 
   return (
-    <Paper elevation={3} className="p-6 max-w-md mx-auto bg-white shadow-lg rounded-lg">
+    <Paper
+      elevation={3}
+      className="p-6 max-w-md mx-auto bg-white shadow-lg rounded-lg"
+    >
       <Typography variant="h5" className="mb-4 font-semibold text-gray-800">
         {member ? "Update Team Member" : "Add Team Member"}
       </Typography>

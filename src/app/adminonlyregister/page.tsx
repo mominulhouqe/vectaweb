@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import axios from "axios";
-import { useRouter } from 'next/navigation';
+import { useRouter } from "next/navigation";
 
 const AdminRegister = () => {
   const [username, setUsername] = useState("");
@@ -12,7 +12,10 @@ const AdminRegister = () => {
 
   const handleRegister = async () => {
     try {
-      await axios.post("http://localhost:5000/api/admin/register", { username, password });
+      await axios.post(
+        "https://vectaweb-backend.vercel.app/api/admin/register",
+        { username, password }
+      );
       setSuccess("Admin registered successfully");
       setError("");
       setUsername("");
@@ -27,7 +30,9 @@ const AdminRegister = () => {
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
       <div className="w-full max-w-sm p-8 bg-white rounded-lg shadow-lg">
-        <h1 className="text-2xl font-semibold text-center mb-6">Admin Register</h1>
+        <h1 className="text-2xl font-semibold text-center mb-6">
+          Admin Register
+        </h1>
         <input
           type="text"
           placeholder="Username"
@@ -43,7 +48,9 @@ const AdminRegister = () => {
           onChange={(e) => setPassword(e.target.value)}
         />
         {error && <p className="text-red-500 text-center mb-4">{error}</p>}
-        {success && <p className="text-green-500 text-center mb-4">{success}</p>}
+        {success && (
+          <p className="text-green-500 text-center mb-4">{success}</p>
+        )}
         <button
           onClick={handleRegister}
           className="w-full py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500"

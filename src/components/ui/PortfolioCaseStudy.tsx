@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { useEffect, useState, useRef } from "react";
 import Image from "next/image";
 import { gsap } from "gsap";
+import LoadingCard from "./LoadingCard";
 
 type CaseStudy = {
   title: string;
@@ -25,7 +26,9 @@ const PortfolioCaseStudy = () => {
   useEffect(() => {
     const fetchCaseStudies = async () => {
       try {
-        const res = await fetch("http://localhost:5000/api/case-studies");
+        const res = await fetch(
+          "https://vectaweb-backend.vercel.app/api/case-studies"
+        );
         if (!res.ok) {
           throw new Error("Failed to fetch case studies");
         }
@@ -44,34 +47,38 @@ const PortfolioCaseStudy = () => {
   // GSAP animations for cards and clip-path
   useEffect(() => {
     if (!loading && caseStudies.length > 0) {
-      const validRefs = cardRefs.current.filter((el): el is HTMLDivElement => el !== null);
+      const validRefs = cardRefs.current.filter(
+        (el): el is HTMLDivElement => el !== null
+      );
 
       // Animate cards on load
       gsap.from(validRefs, {
-        opacity: 0,
-        y: 50,
-        stagger: 0.2, 
+        opacity: 1,
+        y: 5,
+        stagger: 0.2,
         duration: 1,
         ease: "power3.out",
       });
 
       // Animate clip-path for the background on hover
       validRefs.forEach((ref) => {
-        gsap.set(ref.querySelector('.background-clip'), { clipPath: 'circle(0% at 50% 50%)' });
+        gsap.set(ref.querySelector(".background-clip"), {
+          clipPath: "circle(0% at 50% 50%)",
+        });
 
-        ref.addEventListener('mouseenter', () => {
-          gsap.to(ref.querySelector('.background-clip'), {
-            clipPath: 'circle(75% at 50% 50%)',
+        ref.addEventListener("mouseenter", () => {
+          gsap.to(ref.querySelector(".background-clip"), {
+            clipPath: "circle(75% at 50% 50%)",
             duration: 1,
-            ease: 'power3.inOut',
+            ease: "power3.inOut",
           });
         });
 
-        ref.addEventListener('mouseleave', () => {
-          gsap.to(ref.querySelector('.background-clip'), {
-            clipPath: 'circle(0% at 50% 50%)',
+        ref.addEventListener("mouseleave", () => {
+          gsap.to(ref.querySelector(".background-clip"), {
+            clipPath: "circle(0% at 50% 50%)",
             duration: 1,
-            ease: 'power3.inOut',
+            ease: "power3.inOut",
           });
         });
       });
@@ -79,7 +86,11 @@ const PortfolioCaseStudy = () => {
   }, [loading, caseStudies]);
 
   if (loading) {
-    return <div className="text-center py-20">Loading case studies...</div>;
+    return (
+      <div className="text-center py-20 max-w-7xl mx-auto  grid grid=cols-1 md:grid-cols-3 gap-4">
+        <LoadingCard />
+      </div>
+    );
   }
 
   if (error) {
@@ -94,7 +105,7 @@ const PortfolioCaseStudy = () => {
           Explore some of the innovative projects we've completed, addressing
           complex challenges with cutting-edge solutions.
         </p>
-        <div className="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {caseStudies.map((study, index) => (
             <motion.div
               key={index}
@@ -138,7 +149,7 @@ const PortfolioCaseStudy = () => {
             className="bg-white p-6 rounded-lg max-w-lg w-full relative"
             initial={{ scale: 0.9 }}
             animate={{ scale: 1 }}
-            onClick={(e) => e.stopPropagation()} 
+            onClick={(e) => e.stopPropagation()}
           >
             <button
               className="absolute top-3 right-3 text-gray-500 hover:text-gray-700"

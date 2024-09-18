@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import axios from "axios";
-import { useRouter } from 'next/navigation';
+import { useRouter } from "next/navigation";
 
 const AdminLogin = () => {
   const [username, setUsername] = useState("");
@@ -11,7 +11,10 @@ const AdminLogin = () => {
 
   const handleLogin = async () => {
     try {
-      const { data } = await axios.post("http://localhost:5000/api/admin/login", { username, password });
+      const { data } = await axios.post(
+        "https://vectaweb-backend.vercel.app/api/admin/login",
+        { username, password }
+      );
       localStorage.setItem("x-auth-token", data.token);
       router.push("/admin/dashboard"); // Redirect to dashboard
     } catch (err: any) {

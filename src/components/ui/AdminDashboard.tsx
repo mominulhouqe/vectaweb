@@ -1,6 +1,6 @@
 "use client";
 import { useState, useEffect, ChangeEvent, FormEvent } from "react";
-import { useRouter } from 'next/navigation'; // For redirection
+import { useRouter } from "next/navigation"; // For redirection
 import axios from "axios";
 import {
   Container,
@@ -13,7 +13,7 @@ import {
   Card,
   CardContent,
   CircularProgress,
-  Snackbar
+  Snackbar,
 } from "@mui/material";
 import { Alert } from "@mui/material";
 import Navbars from "./AdminNavber";
@@ -57,10 +57,10 @@ const AdminDashboard: React.FC = () => {
 
   useEffect(() => {
     // Ensure localStorage is only accessed in the client environment
-    if (typeof window !== 'undefined') {
-      const storedToken = localStorage.getItem('x-auth-token');
+    if (typeof window !== "undefined") {
+      const storedToken = localStorage.getItem("x-auth-token");
       if (!storedToken) {
-        router.push('/adminonlylogin');
+        router.push("/adminonlylogin");
         return;
       }
       setToken(storedToken);
@@ -73,9 +73,12 @@ const AdminDashboard: React.FC = () => {
     const fetchCaseStudies = async () => {
       setLoading(true);
       try {
-        const response = await axios.get<CaseStudy[]>("http://localhost:5000/api/case-studies", {
-          headers: { 'x-auth-token': token }
-        });
+        const response = await axios.get<CaseStudy[]>(
+          "https://vectaweb-backend.vercel.app/api/case-studies",
+          {
+            headers: { "x-auth-token": token },
+          }
+        );
         setCaseStudies(response.data);
       } catch (error) {
         setError("Error fetching case studies.");
@@ -88,7 +91,9 @@ const AdminDashboard: React.FC = () => {
     fetchCaseStudies();
   }, [token]);
 
-  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
@@ -96,14 +101,28 @@ const AdminDashboard: React.FC = () => {
   const handleAdd = async () => {
     setLoading(true);
     try {
-      await axios.post("http://localhost:5000/api/case-studies", formData, {
-        headers: { 'x-auth-token': token }
-      });
-      const response = await axios.get<CaseStudy[]>("http://localhost:5000/api/case-studies", {
-        headers: { 'x-auth-token': token }
-      });
+      await axios.post(
+        "https://vectaweb-backend.vercel.app/api/case-studies",
+        formData,
+        {
+          headers: { "x-auth-token": token },
+        }
+      );
+      const response = await axios.get<CaseStudy[]>(
+        "https://vectaweb-backend.vercel.app/api/case-studies",
+        {
+          headers: { "x-auth-token": token },
+        }
+      );
       setCaseStudies(response.data);
-      setFormData({ title: "", description: "", challenges: "", solutions: "", imgSrc: "", demoLink: "" });
+      setFormData({
+        title: "",
+        description: "",
+        challenges: "",
+        solutions: "",
+        imgSrc: "",
+        demoLink: "",
+      });
       setSuccess("Case study added successfully.");
     } catch (error) {
       setError("Error adding case study.");
@@ -117,15 +136,29 @@ const AdminDashboard: React.FC = () => {
     if (editCaseStudy) {
       setLoading(true);
       try {
-        await axios.put(`http://localhost:5000/api/case-studies/${editCaseStudy._id}`, formData, {
-          headers: { 'x-auth-token': token }
-        });
-        const response = await axios.get<CaseStudy[]>("http://localhost:5000/api/case-studies", {
-          headers: { 'x-auth-token': token }
-        });
+        await axios.put(
+          `https://vectaweb-backend.vercel.app/api/case-studies/${editCaseStudy._id}`,
+          formData,
+          {
+            headers: { "x-auth-token": token },
+          }
+        );
+        const response = await axios.get<CaseStudy[]>(
+          "https://vectaweb-backend.vercel.app/api/case-studies",
+          {
+            headers: { "x-auth-token": token },
+          }
+        );
         setCaseStudies(response.data);
         setEditCaseStudy(null);
-        setFormData({ title: "", description: "", challenges: "", solutions: "", imgSrc: "", demoLink: "" });
+        setFormData({
+          title: "",
+          description: "",
+          challenges: "",
+          solutions: "",
+          imgSrc: "",
+          demoLink: "",
+        });
         setSuccess("Case study updated successfully.");
       } catch (error) {
         setError("Error editing case study.");
@@ -139,12 +172,18 @@ const AdminDashboard: React.FC = () => {
   const handleDelete = async (id: string) => {
     setLoading(true);
     try {
-      await axios.delete(`http://localhost:5000/api/case-studies/${id}`, {
-        headers: { 'x-auth-token': token }
-      });
-      const response = await axios.get<CaseStudy[]>("http://localhost:5000/api/case-studies", {
-        headers: { 'x-auth-token': token }
-      });
+      await axios.delete(
+        `https://vectaweb-backend.vercel.app/api/case-studies/${id}`,
+        {
+          headers: { "x-auth-token": token },
+        }
+      );
+      const response = await axios.get<CaseStudy[]>(
+        "https://vectaweb-backend.vercel.app/api/case-studies",
+        {
+          headers: { "x-auth-token": token },
+        }
+      );
       setCaseStudies(response.data);
       setSuccess("Case study deleted successfully.");
     } catch (error) {
