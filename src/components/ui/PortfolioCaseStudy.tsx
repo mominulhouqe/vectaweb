@@ -100,7 +100,9 @@ const PortfolioCaseStudy = () => {
   return (
     <section id="project" className="py-20 bg-gray-50 px-4 ">
       <div className="container mx-auto text-center">
-        <h2 className="text-4xl font-bold mb-10 text-teal-600">Case Studies</h2>
+        <h2 className="text-4xl font-bold mb-10 text-teal-600">
+          Project Case Studies
+        </h2>
         <p className="text-gray-600 text-lg leading-relaxed mb-8 max-w-2xl mx-auto">
           Explore some of the innovative projects we've completed, addressing
           complex challenges with cutting-edge solutions.

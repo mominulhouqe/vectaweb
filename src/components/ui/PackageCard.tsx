@@ -17,6 +17,7 @@ const PackageCard = () => {
 
   const packages = [
     {
+      id: "1",
       title: "Custom Software Development",
       description:
         "Tailored solutions designed to meet your unique business needs and drive growth with innovative technology.",
@@ -24,6 +25,7 @@ const PackageCard = () => {
       bgColor: "bg-blue-700",
     },
     {
+      id: "2",
       title: "UI/UX Design",
       description:
         "Exceptional design that enhances user experience and interaction, ensuring your software is both beautiful and intuitive.",
@@ -31,6 +33,7 @@ const PackageCard = () => {
       bgColor: "bg-teal-600",
     },
     {
+      id: "3",
       title: "Cloud Solutions",
       description:
         "Scalable and secure cloud infrastructure designed to enhance your business operations and enable growth.",
@@ -38,6 +41,7 @@ const PackageCard = () => {
       bgColor: "bg-purple-600",
     },
     {
+      id: "4",
       title: "Technical Support",
       description:
         "Dedicated support to resolve issues quickly, ensuring your software remains operational and effective.",
@@ -52,7 +56,7 @@ const PackageCard = () => {
         <div className="grid  sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-6 lg:h-72 h-full rounded-3xl text-white mx-2">
           {packages.map((pkg, index) => (
             <motion.div
-              key={index}
+              key={pkg.id}
               className={`space-y-4 ${pkg.bgColor} p-4 rounded-lg shadow-lg`}
               variants={cardVariants}
               whileHover="hover"

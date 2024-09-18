@@ -11,9 +11,10 @@ const roboto = Roboto({
 });
 
 export const metadata: Metadata = {
-  title: "vectaweb",
+  title:
+    "Vectaweb - Leading Software Development Company | Innovative Tech Solutions",
   description:
-    "Welcome to vectaweb – where innovation meets imagination in the dynamic realm of technology, offering a thrilling journey through the latest trends and groundbreaking discoveries in the world of tech!",
+    "Welcome to Vectaweb – a leading software company specializing in cutting-edge technology solutions and innovative software development. Explore our expertise in creating custom applications, mobile solutions, and dynamic web experiences that drive success and efficiency for businesses across various industries.",
 };
 
 export default function RootLayout({
