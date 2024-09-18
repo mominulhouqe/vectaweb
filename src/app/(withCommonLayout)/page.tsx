@@ -17,13 +17,12 @@ import PackageCard from "@/components/ui/PackageCard";
 import PortfolioCaseStudy from "@/components/ui/PortfolioCaseStudy";
 import ShootingStars from "@/components/ui/ShootingStars";
 
-
 const HomePage = async () => {
   return (
     <div className="relative overflow-hidden">
       <AnimatedBackground />
-  
-      {/* <FloatingBubbles />
+      <FloatingBubbles />
+      {/*
       <ShootingStars /> */}
       {/* <SlidingWaves /> */}
       <MouseFollowAnimation />
