@@ -1,3 +1,4 @@
+import { TextareaAutosize } from "@mui/material";
 import Image from "next/image";
 
 const Contactus = () => {
@@ -93,14 +94,14 @@ const Contactus = () => {
                   className="w-full p-2 rounded-lg border border-gray-400 mb-6 bg-gray-200 focus:outline-none placeholder:font-light placeholder:text-xl"
                 />
 
-                <textarea
+                <TextareaAutosize
                   name=""
                   id=""
-                  cols="30"
-                  rows="8"
+                  maxRows={6}
+                  cols={5}
                   placeholder="Context"
                   className="w-full border border-gray-400 rounded-lg p-2 bg-gray-200 focus:outline-none placeholder:font-light placeholder:text-xl"
-                ></textarea>
+                ></TextareaAutosize>
                 <button className="my-6 bg-teal-600 text-white rounded-full hover:bg-teal-600 font-medium py-2 px-8 cursor-pointer hover:-translate-y-2 transform ease-in-out duration-500 ">
                   Request Quote
                 </button>
