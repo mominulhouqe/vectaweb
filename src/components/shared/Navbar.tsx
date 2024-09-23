@@ -1,7 +1,7 @@
-"use client"
+"use client";
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import logo from "@/assets/logo.png"
+import logo from "@/assets/logo.png";
 import Image from "next/image";
 
 const Navbar = () => {
@@ -92,15 +92,15 @@ const Navbar = () => {
 
         <motion.button
           whileHover={{ translateY: -5 }}
-          className="bg-gradient-to-r from-rose-400 to-pink-500 text-white hidden md:block rounded-full font-medium py-2 px-6 shadow-lg"
+          className="bg-gradient-to-r from-teal-500 to-teal-600 text-white hidden md:block rounded-full font-medium py-2 px-6 shadow-lg"
         >
-          <a href="#contact">Let's Talk</a>
+          <a href="#contact">Let`s Talk</a>
         </motion.button>
 
         {/* For small devices (hamburger menu trigger) */}
         <button
           onClick={() => setMenuOpen(true)}
-          className="bg-gradient-to-r from-rose-400 to-pink-500 p-2 rounded-full cursor-pointer block md:hidden shadow-lg"
+          className="bg-gradient-to-r from-teal-500 to-teal-600 p-2 rounded-full cursor-pointer block md:hidden shadow-lg"
         >
           <svg
             className="w-5 h-5 fill-white"

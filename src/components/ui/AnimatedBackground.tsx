@@ -36,7 +36,7 @@ const AnimatedBackground = () => {
   return (
     <div
       ref={backgroundRef}
-      className="relative w-full h-screen bg-gradient-to-r from-blue-400 to-purple-600 overflow-hidden"
+      className="relative w-full h-[calc(100vh-20vh)] bg-gradient-to-r from-blue-400 to-purple-600 overflow-hidden"
       style={{ backgroundSize: "300% 300%" }}
     >
       <div className="absolute floating-shape w-32 h-32 rounded-full bg-white opacity-20 top-10 left-10"></div>

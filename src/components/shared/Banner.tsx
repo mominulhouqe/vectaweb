@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import { motion } from "framer-motion"; // Framer Motion for smooth animations
 
 const Banner = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -50,7 +51,7 @@ const Banner = () => {
               </p>
               <a
                 href="#services"
-                className="inline-block px-6 py-3 bg-gradient-to-r from-rose-400 to-pink-500 text-white rounded-lg shadow-lg transition duration-300"
+                className="inline-block px-4 py-2 bg-gradient-to-r from-rose-400 to-pink-500 text-white rounded-lg shadow-lg transition duration-300"
               >
                 Discover More
               </a>
@@ -88,7 +89,7 @@ const Banner = () => {
               </p>
               <a
                 href="#contact"
-                className="inline-block px-6 py-3 bg-teal-600 text-white rounded-lg shadow-lg hover:bg-teal-700 transition duration-300"
+                className="inline-block px-6 py-3 bg-pink-400 text-white rounded-lg shadow-lg hover:bg-pink-500 transition duration-300"
               >
                 Explore More
               </a>
