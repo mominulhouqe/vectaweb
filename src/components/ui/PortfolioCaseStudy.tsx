@@ -6,6 +6,7 @@ import { gsap } from "gsap";
 import LoadingCard from "./LoadingCard";
 
 type CaseStudy = {
+  id: string;
   title: string;
   description: string;
   challenges: string;
@@ -33,6 +34,8 @@ const PortfolioCaseStudy = () => {
           throw new Error("Failed to fetch case studies");
         }
         const data = await res.json();
+        console.log(data);
+
         setCaseStudies(data);
         setLoading(false);
       } catch (err: any) {
@@ -98,24 +101,25 @@ const PortfolioCaseStudy = () => {
   }
 
   return (
-    <section id="project" className="py-20 bg-gray-50 px-4 ">
+    <section id="project" className="py-20 px-4 max-w-7xl mx-auto">
       <div className="container mx-auto text-center">
-        <h2 className="text-4xl font-bold mb-10 text-teal-600">
-          Project Case Studies
-        </h2>
-        <p className="text-gray-600 text-lg leading-relaxed mb-8 max-w-2xl mx-auto">
-          Explore some of the innovative projects we've completed, addressing
-          complex challenges with cutting-edge solutions.
-        </p>
+        <div className="text-center mb-12">
+          <h2 className=" text-5xl font-semibold mb-4 underline  underline-offset-4 text-teal-600">
+            Our Projects: Project Case Studies
+          </h2>
+          <p className=" text-lg font-light max-w-2xl mx-auto">
+            Explore some of the innovative projects we have completed,
+            addressing complex challenges with cutting-edge solutions.
+          </p>
+        </div>
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {caseStudies.map((study, index) => (
             <motion.div
-              key={index}
-              ref={(el) => (cardRefs.current[index] = el)} // Store refs for GSAP
+              key={study.id}
+              ref={(el) => (cardRefs.current[index] = el)}
               className="relative p-6 bg-white rounded-lg shadow-lg cursor-pointer transition-transform"
               onClick={() => setSelectedStudy(study)}
             >
-              {/* Background Layer for Clip-path animation */}
               <div className="background-clip absolute inset-0 bg-teal-500 opacity-30 rounded-lg z-0"></div>
 
               {/* Image and Content */}

@@ -47,60 +47,55 @@ const services = [
 
 const OurService = () => {
   return (
-    <div>
+    <>
       <section id="service" className="max-w-7xl w-full mx-auto py-6">
-        <div className="bg-blue-950 p-6 rounded-3xl shadow-lg">
-          <div className="text-center mb-12">
-            <button className="bg-green-500 text-white rounded-full px-6 py-2 uppercase mb-4">
-              Services
-            </button>
-            <h2 className="text-white text-4xl font-semibold mb-4">
-              Our Services: Your Solutions
-            </h2>
-            <p className="text-white text-lg font-light max-w-2xl mx-auto">
-              Discover tailored services designed to address your specific needs
-              and elevate your brand’s potential to new heights.
-            </p>
-          </div>
+        <div className="text-center mb-12">
+          <h2 className=" text-5xl font-semibold mb-4 underline  underline-offset-4 text-teal-600">
+            Our Services: Your Solutions
+          </h2>
+          <p className=" text-lg font-light max-w-2xl mx-auto">
+            Discover tailored services designed to address your specific needs
+            and elevate your brand’s potential to new heights.
+          </p>
+        </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
-            {services.map((service) => (
-              <div
-                key={service.id}
-                className="relative bg-white rounded-3xl shadow-lg overflow-hidden transform transition-transform duration-500 hover:scale-105 group"
-              >
-                <Image
-                  src={service.image}
-                  alt={service.title}
-                  width={500}
-                  height={300}
-                  className="w-full h-56 object-cover"
-                />
-                <div className="p-6">
-                  <h3 className="text-xl font-semibold text-gray-800 mb-3">
-                    {service.title}
-                  </h3>
-                  <p className="text-gray-600 mb-4">{service.description}</p>
-                  <a
-                    href="#"
-                    className="text-rose-500 font-medium flex items-center transition-transform duration-300 group-hover:underline"
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+          {services.map((service) => (
+            <div
+              key={service.id}
+              className="relative bg-white rounded-3xl shadow-lg overflow-hidden transform transition-transform duration-500 hover:scale-105 group"
+            >
+              <Image
+                src={service.image}
+                alt={service.title}
+                width={500}
+                height={300}
+                className="w-full h-56 object-cover"
+              />
+              <div className="p-6">
+                <h3 className="text-xl font-semibold text-gray-800 mb-3">
+                  {service.title}
+                </h3>
+                <p className="text-gray-600 mb-4">{service.description}</p>
+                <a
+                  href="#"
+                  className="text-rose-500 font-medium flex items-center transition-transform duration-300 group-hover:underline"
+                >
+                  Know more
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="w-4 h-4 ml-2 transform group-hover:translate-x-1"
+                    viewBox="0 0 448 512"
                   >
-                    Know more
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="w-4 h-4 ml-2 transform group-hover:translate-x-1"
-                      viewBox="0 0 448 512"
-                    >
-                      <path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" />
-                    </svg>
-                  </a>
-                </div>
+                    <path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" />
+                  </svg>
+                </a>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
       </section>
-    </div>
+    </>
   );
 };
 

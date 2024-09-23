@@ -40,11 +40,11 @@ const Milestones = () => {
     >
       <div className="text-center">
         <h2 className="text-3xl sm:text-4xl font-bold mb-6 sm:mb-10 text-teal-400">
-          Milestones We've Achieved
+          Milestones We have Achieved
         </h2>
         <p className="text-gray-400 text-base sm:text-lg mb-8 sm:mb-12 max-w-3xl mx-auto">
-          Our journey so far has been nothing short of remarkable. Here's a look
-          at some of the key milestones we've achieved over the years.
+          Our journey so far has been nothing short of remarkable. Here is a
+          look at some of the key milestones we have achieved over the years.
         </p>
 
         <div className="grid gap-6 sm:gap-8 md:grid-cols-2 lg:grid-cols-4">
@@ -60,12 +60,15 @@ const Milestones = () => {
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: index * 0.3 }}
               style={{
-                clipPath:
-                  "polygon(15% 0%, 100% 0, 85% 100%, 0% 100%)", // Custom clip-path
+                clipPath: "polygon(15% 0%, 100% 0, 85% 100%, 0% 100%)", // Custom clip-path
               }}
             >
-              <h3 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4">{milestone.title}</h3>
-              <p className="text-gray-200 text-sm sm:text-base">{milestone.description}</p>
+              <h3 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4">
+                {milestone.title}
+              </h3>
+              <p className="text-gray-200 text-sm sm:text-base">
+                {milestone.description}
+              </p>
               <div className="absolute inset-0 bg-white opacity-20 transform scale-150 rotate-45 rounded-full"></div>
             </motion.div>
           ))}
@@ -79,8 +82,7 @@ const Milestones = () => {
         animate={{ opacity: 0.3 }}
         transition={{ duration: 1.2, repeat: Infinity, repeatType: "mirror" }}
         style={{
-          clipPath:
-            "polygon(0% 0%, 100% 10%, 85% 100%, 0% 90%)", // Moving animated background
+          clipPath: "polygon(0% 0%, 100% 10%, 85% 100%, 0% 90%)", // Moving animated background
         }}
       />
     </section>

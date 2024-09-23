@@ -12,18 +12,26 @@ const OurTeam = async () => {
   return (
     <div>
       <section id="about" className="max-w-7xl w-full mx-auto">
-        <div className="bg-blue-950 text-white px-6 mb-24 text-center">
-          <button className="mb-4 bg-green-500 text-white rounded-full font-medium py-2 px-8 mt-14">
-            Our Team Members
-          </button>
+        <div className="  px-6 mb-24 text-center">
+          <div className="text-center mb-12">
+            <h2 className=" text-5xl font-semibold mb-4 underline   text-teal-600 underline-offset-4">
+              Our Team Members
+            </h2>
+            <p className=" text-lg font-light max-w-2xl mx-auto">
+              Meet Our Software Development Team A Passionate Group of Experts
+              Crafting Innovative Solutions Delivering Excellence in Every Line
+              of Code
+            </p>
+          </div>
+
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 place-items-center gap-4 w-full text-left translate-y-14 lg:translate-y-16">
             {teamMembers.map((member: any) => (
               <div
-                key={member.id} // Ensure each member has a unique key
-                className="relative h-96 w-full rounded-lg overflow-hidden group"
+                key={member.id}
+                className="relative h-96 w-full rounded-lg overflow-hidden group border"
               >
                 <Image
-                  src={member.image} // Use image URL from API
+                  src={member.image}
                   alt={`${member.name}'s Avatar`}
                   className="w-full h-full object-cover"
                   width={400}

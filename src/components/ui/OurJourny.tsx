@@ -1,8 +1,12 @@
+import Image from "next/image";
+
 const OurJourny = () => {
   return (
     <div className="flex flex-col md:flex-row items-center justify-center max-w-7xl mx-auto gap-12 my-6 w-full px-4">
       <div className="max-w-md w-full h-[460px] flex justify-center items-center mx-auto shadow-lg rounded-lg overflow-hidden">
-        <img
+        <Image
+          height={600}
+          width={700}
           className="w-full h-full object-cover"
           src="https://img.freepik.com/free-photo/collage-customer-experience-concept_23-2149367138.jpg"
           alt="Experience Image"
@@ -10,15 +14,14 @@ const OurJourny = () => {
       </div>
 
       <div className="max-w-md w-full">
-        <h2 className="bg-rose-500 text-white px-6 py-1 rounded-full max-w-xs text-center tracking-wide mb-4">
-          EXPERIENCE
-        </h2>
         <h2 className="font-semibold text-4xl text-gray-800 mb-6">
           Our Journey
         </h2>
         <p className="font-medium text-lg text-gray-700 leading-relaxed mb-6">
           With over 3 years of experience, we’ve been unearthing the
-          <span className="font-bold text-rose-500">#StrengthInEveryBrand</span>
+          <span className="font-bold text-rose-500 mx-2">
+            #StrengthInEveryBrand
+          </span>
           we collaborate with. Our team covers every aspect comprehensively,
           including:
         </p>

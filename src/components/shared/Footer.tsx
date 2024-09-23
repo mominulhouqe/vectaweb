@@ -12,7 +12,7 @@ const Footer = () => {
               className="w-20 rounded-md  mb-1 shadow-lg"
             />
             <p className="w-28 font-bold">VectaWeb</p>
-            <div className="w-32 h-px bg-green-500 my-4"></div>
+            <div className="w-32 h-px bg-teal-600 my-4"></div>
             <div className="flex items-center gap-4 hover:text-green-500 mb-4">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -145,7 +145,7 @@ const Footer = () => {
             <p>Touch us by email or phone.</p>
 
             <div className="my-4 flex gap-2 items-center">
-              <span className="bg-green-500 hover:bg-black p-2 rounded-full duration-300">
+              <span className="bg-teal-600 hover:bg-black p-2 rounded-full duration-300">
                 <a
                   href="https://www.facebook.com/profile.php?id=61563945374311"
                   target="_blank"
@@ -162,7 +162,7 @@ const Footer = () => {
               <a
                 href="https://www.instagram.com/vectawebbd/"
                 target="_blank"
-                className="bg-green-500 hover:bg-black p-2 rounded-full duration-300"
+                className="bg-teal-600 hover:bg-black p-2 rounded-full duration-300"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
