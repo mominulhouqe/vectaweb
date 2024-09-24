@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import logo from "@/assets/logo.png";
 import Image from "next/image";
+import Link from "next/link";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -34,16 +35,18 @@ const Navbar = () => {
         }`}
       >
         <div className="flex items-center">
-          <div className="flex items-center gap-1 -space-y-1 cursor-pointer">
-            <Image
-              src={logo}
-              alt="Logo"
-              className="w-14 h-14 rounded-full mb-1 shadow-lg"
-            />
-            <span className="text-sm font-semibold">
-              Crafting Your Success Story Online
-            </span>
-          </div>
+          <a href="#">
+            <div className="flex items-center gap-1 -space-y-1 cursor-pointer">
+              <Image
+                src={logo}
+                alt="Logo"
+                className="w-14 h-14 rounded-full mb-1 shadow-lg"
+              />
+              <span className="text-sm font-semibold">
+                Crafting Your Success Story Online
+              </span>
+            </div>
+          </a>
         </div>
 
         {/* Large screen menu */}
