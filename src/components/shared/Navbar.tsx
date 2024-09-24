@@ -123,9 +123,7 @@ const Navbar = () => {
           <button
             onClick={() => setMenuOpen(false)}
             className="absolute top-4 right-4 text-black"
-          >
-            X
-          </button>
+          ></button>
           <ul className="flex flex-col items-start p-6 space-y-4 text-lg">
             <li>
               <a
