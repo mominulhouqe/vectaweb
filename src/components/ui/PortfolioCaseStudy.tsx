@@ -104,10 +104,10 @@ const PortfolioCaseStudy = () => {
     <section id="project" className="py-20 px-4 max-w-7xl mx-auto">
       <div className="container mx-auto text-center">
         <div className="text-center mb-12">
-          <h2 className=" text-5xl font-semibold mb-4 underline  underline-offset-4 text-teal-600">
+          <h2 className=" text-3xl md:text-5xl font-semibold mb-4 underline  underline-offset-4 text-teal-600">
             Our Projects: Project Case Studies
           </h2>
-          <p className=" text-lg font-light max-w-2xl mx-auto">
+          <p className=" text-lg font-light max-w-2xl w-full mx-auto">
             Explore some of the innovative projects we have completed,
             addressing complex challenges with cutting-edge solutions.
           </p>

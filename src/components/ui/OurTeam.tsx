@@ -14,10 +14,10 @@ const OurTeam = async () => {
       <section id="about" className="max-w-7xl w-full mx-auto">
         <div className="  px-6 mb-24 text-center">
           <div className="text-center mb-12">
-            <h2 className=" text-5xl font-semibold mb-4 underline   text-teal-600 underline-offset-4">
+            <h2 className=" text-3xl md:text-5xl font-semibold mb-4 underline   text-teal-600 underline-offset-4">
               Our Team Members
             </h2>
-            <p className=" text-lg font-light max-w-2xl mx-auto">
+            <p className=" text-lg font-light max-w-2xl w-full mx-auto">
               Meet Our Software Development Team A Passionate Group of Experts
               Crafting Innovative Solutions Delivering Excellence in Every Line
               of Code
