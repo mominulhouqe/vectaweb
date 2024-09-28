@@ -41,7 +41,7 @@ const services = [
     title: "UI/UX Design",
     description:
       "We design intuitive and aesthetically pleasing user interfaces and experiences to enhance user satisfaction and engagement.",
-    image: "https://i.ibb.co.com/fGp7Ykj/image.png",
+    image: "https://i.ibb.co.com/wCprvqG/uiux-devs.png",
   },
 ];
 

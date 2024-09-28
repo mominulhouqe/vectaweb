@@ -54,7 +54,7 @@ const PackageCard = () => {
     <section className="max-w-7xl w-full mx-auto">
       <div className="w-full lg:px-10 mx-auto -translate-y-12">
         <div className="grid  sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-6 lg:h-72 h-full rounded-3xl text-white mx-2">
-          {packages.map((pkg, index) => (
+          {packages.map((pkg) => (
             <motion.div
               key={pkg.id}
               className={`space-y-4 ${pkg.bgColor} p-4 rounded-lg shadow-lg`}
