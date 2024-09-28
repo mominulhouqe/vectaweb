@@ -6,14 +6,14 @@ const services = [
     title: "Software Development",
     description:
       "We craft reliable software solutions that tackle complex challenges with precision, ensuring your project’s success.",
-    image: "https://i.ibb.co.com/kJNNGT4/software-development.png",
+    image: "https://i.ibb.co.com/txLpfbx/software-devs.jpg",
   },
   {
     id: 2,
     title: "Apps Development",
     description:
       "We offer end-to-end app development services, building high-performance apps that deliver an excellent user experience.",
-    image: "https://i.ibb.co/fYHhBFY/apps.jpg",
+    image: "https://i.ibb.co.com/yBHKPxr/apps-devs.png",
   },
   {
     id: 3,
@@ -27,7 +27,7 @@ const services = [
     title: "Web Design",
     description:
       "Our design team crafts visually appealing and user-centric websites that leave a lasting impression on visitors.",
-    image: "https://i.ibb.co.com/JF3HHV8/web-design.png",
+    image: "https://i.ibb.co.com/jgNZ867/webdesign-devs.png",
   },
   {
     id: 5,
