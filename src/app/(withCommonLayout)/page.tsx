@@ -5,10 +5,7 @@ import ChatWidget from "@/components/ui/ChatWidget";
 import Contact from "@/components/ui/Contactus";
 import FAQSection from "@/components/ui/FAQSection";
 import FloatingBubbles from "@/components/ui/FloatingBubbles";
-
 import Milestones from "@/components/ui/Milestones";
-
-import MouseFollowAnimation from "@/components/ui/MouseFollowAnimation";
 
 import OurJourny from "@/components/ui/OurJourny";
 import OurService from "@/components/ui/OurService";

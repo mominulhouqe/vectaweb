@@ -1,8 +1,8 @@
 "use client";
 import { motion } from "framer-motion";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
-import { gsap } from "gsap";
+import useSWR from "swr";
 import LoadingCard from "./LoadingCard";
 
 type CaseStudy = {
@@ -15,140 +15,98 @@ type CaseStudy = {
   demoLink: string;
 };
 
+const fetcher = (url: string) => fetch(url).then((res) => res.json());
+
 const PortfolioCaseStudy = () => {
-  const [caseStudies, setCaseStudies] = useState<CaseStudy[]>([]);
+  const { data, error, isValidating } = useSWR<CaseStudy[]>(
+    "https://vectaweb-backend.vercel.app/api/case-studies",
+    fetcher,
+    { revalidateOnFocus: false }
+  );
+
   const [selectedStudy, setSelectedStudy] = useState<CaseStudy | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
 
-  const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const cardsContainerVariant = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.2 },
+    },
+  };
 
-  // Fetch case studies
-  useEffect(() => {
-    const fetchCaseStudies = async () => {
-      try {
-        const res = await fetch(
-          "https://vectaweb-backend.vercel.app/api/case-studies"
-        );
-        if (!res.ok) {
-          throw new Error("Failed to fetch case studies");
-        }
-        const data = await res.json();
-        console.log(data);
+  const cardVariant = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+  };
 
-        setCaseStudies(data);
-        setLoading(false);
-      } catch (err: any) {
-        setError(err.message);
-        setLoading(false);
-      }
-    };
-
-    fetchCaseStudies();
-  }, []);
-
-  // GSAP animations for cards and clip-path
-  useEffect(() => {
-    if (!loading && caseStudies.length > 0) {
-      const validRefs = cardRefs.current.filter(
-        (el): el is HTMLDivElement => el !== null
-      );
-
-      // Animate cards on load
-      gsap.from(validRefs, {
-        opacity: 1,
-        y: 5,
-        stagger: 0.2,
-        duration: 1,
-        ease: "power3.out",
-      });
-
-      // Animate clip-path for the background on hover
-      validRefs.forEach((ref) => {
-        gsap.set(ref.querySelector(".background-clip"), {
-          clipPath: "circle(0% at 50% 50%)",
-        });
-
-        ref.addEventListener("mouseenter", () => {
-          gsap.to(ref.querySelector(".background-clip"), {
-            clipPath: "circle(75% at 50% 50%)",
-            duration: 1,
-            ease: "power3.inOut",
-          });
-        });
-
-        ref.addEventListener("mouseleave", () => {
-          gsap.to(ref.querySelector(".background-clip"), {
-            clipPath: "circle(0% at 50% 50%)",
-            duration: 1,
-            ease: "power3.inOut",
-          });
-        });
-      });
-    }
-  }, [loading, caseStudies]);
-
-  if (loading) {
+  if (isValidating) {
     return (
-      <div className="text-center py-20 max-w-7xl mx-auto  grid grid=cols-1 md:grid-cols-3 gap-4">
-        <LoadingCard />
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        {Array(6)
+          .fill(null)
+          .map((_, index) => (
+            <LoadingCard key={index} />
+          ))}
       </div>
     );
   }
 
   if (error) {
-    return <div className="text-center py-20 text-red-500">Error: {error}</div>;
+    return (
+      <div className="text-center py-20 text-red-500">
+        Error loading case studies: {error.message}
+      </div>
+    );
   }
 
   return (
     <section id="project" className="py-20 px-4 max-w-7xl mx-auto">
-      <div className="container mx-auto text-center">
-        <div className="text-center mb-12">
-          <h2 className=" text-3xl md:text-5xl font-semibold mb-4 underline  underline-offset-4 text-teal-600">
-            Our Projects: Project Case Studies
-          </h2>
-          <p className=" text-lg font-light max-w-2xl w-full mx-auto">
-            Explore some of the innovative projects we have completed,
-            addressing complex challenges with cutting-edge solutions.
-          </p>
-        </div>
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          {caseStudies.map((study, index) => (
-            <motion.div
-              key={study.id}
-              ref={(el) => (cardRefs.current[index] = el)}
-              className="relative p-6 bg-white rounded-lg shadow-lg cursor-pointer transition-transform"
-              onClick={() => setSelectedStudy(study)}
-            >
-              <div className="background-clip absolute inset-0 bg-teal-500 opacity-30 rounded-lg z-0"></div>
-
-              {/* Image and Content */}
-              <div className="relative z-10">
-                <Image
-                  src={study.imgSrc}
-                  alt={study.title}
-                  width={400}
-                  height={300}
-                  className="h-48 w-full object-cover rounded-lg mb-4"
-                />
-                <h3 className="text-xl font-semibold text-gray-800">
-                  {study.title}
-                </h3>
-                <p className="mt-2 text-gray-600">
-                  {study.description.slice(0, 100)}...
-                </p>
-              </div>
-            </motion.div>
-          ))}
-        </div>
+      <div className="text-center mb-12">
+        <h2 className="text-3xl md:text-5xl font-semibold mb-4 text-teal-600">
+          Our Projects: Case Studies
+        </h2>
+        <p className="text-lg font-light max-w-2xl mx-auto">
+          Explore the projects we have accomplished, overcoming challenges with
+          innovative solutions.
+        </p>
       </div>
 
-      {/* Modal for Case Study Details */}
+      <motion.div
+        className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3"
+        variants={cardsContainerVariant}
+        initial="hidden"
+        animate="visible"
+      >
+        {data?.map((study) => (
+          <motion.div
+            key={study.id}
+            variants={cardVariant}
+            className="relative p-6 bg-white rounded-lg shadow-lg cursor-pointer hover:scale-105 transition-transform"
+            onClick={() => setSelectedStudy(study)}
+          >
+            <Image
+              src={study.imgSrc}
+              alt={study.title}
+              width={400}
+              height={300}
+              className="h-48 w-full object-cover rounded-lg mb-4"
+            />
+            <h3 className="text-xl font-semibold text-gray-800">
+              {study.title}
+            </h3>
+            <p className="mt-2 text-gray-600">
+              {study.description.slice(0, 100)}...
+            </p>
+          </motion.div>
+        ))}
+      </motion.div>
+
       {selectedStudy && (
         <motion.div
-          className="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center px-4"
+          className="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center px-4 z-50"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
           onClick={() => setSelectedStudy(null)}
         >
           <motion.div
@@ -174,12 +132,10 @@ const PortfolioCaseStudy = () => {
               className="h-48 w-full object-cover rounded-lg mb-4"
             />
             <p className="mb-4">
-              <strong className="font-semibold">Challenges:</strong>{" "}
-              {selectedStudy.challenges}
+              <strong>Challenges:</strong> {selectedStudy.challenges}
             </p>
             <p className="mb-4">
-              <strong className="font-semibold">Solutions:</strong>{" "}
-              {selectedStudy.solutions}
+              <strong>Solutions:</strong> {selectedStudy.solutions}
             </p>
             <a
               href={selectedStudy.demoLink}
