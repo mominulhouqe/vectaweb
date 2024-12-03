@@ -1,4 +1,5 @@
 import OurBrand from "@/components/component/OurBrand";
+import OurTeam from "@/components/component/OurTeam";
 import Banner from "@/components/shared/Banner";
 import AnimatedBackground from "@/components/ui/AnimatedBackground";
 import ChatWidget from "@/components/ui/ChatWidget";
@@ -10,7 +11,6 @@ import Milestones from "@/components/ui/Milestones";
 import OurJourny from "@/components/ui/OurJourny";
 import OurService from "@/components/ui/OurService";
 
-import OurTeam from "@/components/ui/OurTeam";
 import PackageCard from "@/components/ui/PackageCard";
 
 import PortfolioCaseStudy from "@/components/ui/PortfolioCaseStudy";
@@ -33,6 +33,7 @@ const HomePage = () => {
       {/* #1F42A6 */}
       <OurBrand />
       <OurJourny />
+      <OurTeam />
     </div>
   );
 };

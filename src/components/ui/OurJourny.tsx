@@ -3,7 +3,7 @@ import backgroundImg from "@/assets/background.png";
 
 const OurJourney = () => {
   return (
-    <div className="relative grid grid-cols-1 md:grid-cols-2 items-center text-white p-10 rounded-lg shadow-lg h-[900px]">
+    <div className="relative grid grid-cols-1 md:grid-cols-2 items-center text-white p-10 rounded-lg shadow-lg h-[600px]">
       {/* Background Image */}
       <div className="absolute inset-0 -z-10">
         <Image
