@@ -51,7 +51,7 @@ const products = [
 
 const OurBrand = () => {
   return (
-    <div className="px-4 py-10 ">
+    <div id="project" className="px-4 py-10 ">
       {/* Header Section */}
       <div className="text-center grid md:grid-cols-2 justify-between  py-12 md:py-20">
         <h1 className="text-4xl font-bold text-gray-800 mb-4">Our Product</h1>

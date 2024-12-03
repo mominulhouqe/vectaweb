@@ -94,7 +94,7 @@ const categories = [
 
 const OurTeam = () => {
   return (
-    <div className="px-4 py-10 bg-gray-50">
+    <div id="service" className="px-4 py-10 bg-gray-50">
       {/* Header Section */}
       <div className="text-center grid md:grid-cols-2 justify-between  py-12 md:py-20">
         <h1 className="text-4xl font-extrabold text-gray-800 mb-4">

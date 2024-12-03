@@ -1,19 +1,8 @@
 import OurBrand from "@/components/component/OurBrand";
 import OurTeam from "@/components/component/OurTeam";
 import Banner from "@/components/shared/Banner";
-import AnimatedBackground from "@/components/ui/AnimatedBackground";
 import ChatWidget from "@/components/ui/ChatWidget";
-import Contact from "@/components/ui/Contactus";
-import FAQSection from "@/components/ui/FAQSection";
-import FloatingBubbles from "@/components/ui/FloatingBubbles";
-import Milestones from "@/components/ui/Milestones";
-
-import OurJourny from "@/components/ui/OurJourny";
-import OurService from "@/components/ui/OurService";
-
-import PackageCard from "@/components/ui/PackageCard";
-
-import PortfolioCaseStudy from "@/components/ui/PortfolioCaseStudy";
+import OurJourney from "@/components/ui/OurJourny";
 
 const HomePage = () => {
   return (
@@ -26,13 +15,13 @@ const HomePage = () => {
       <OurService />
       <PortfolioCaseStudy />
       <OurTeam />
-      <ChatWidget />
       <Milestones />
       <FAQSection />
       <Contact /> */}
+      <ChatWidget />
       {/* #1F42A6 */}
       <OurBrand />
-      <OurJourny />
+      <OurJourney />
       <OurTeam />
     </div>
   );
