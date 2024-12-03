@@ -32,6 +32,7 @@ const HomePage = () => {
       <Contact /> */}
       {/* #1F42A6 */}
       <OurBrand />
+      <OurJourny />
     </div>
   );
 };
