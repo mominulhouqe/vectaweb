@@ -1,5 +1,4 @@
-"use client";
-
+import Banner from "@/components/shared/Banner";
 import AnimatedBackground from "@/components/ui/AnimatedBackground";
 import ChatWidget from "@/components/ui/ChatWidget";
 import Contact from "@/components/ui/Contactus";
@@ -18,7 +17,8 @@ import PortfolioCaseStudy from "@/components/ui/PortfolioCaseStudy";
 const HomePage = () => {
   return (
     <div className="relative overflow-hidden">
-      <AnimatedBackground />
+      <Banner />
+      {/* <AnimatedBackground />
       <FloatingBubbles />
       <PackageCard />
       <OurJourny />
@@ -28,7 +28,8 @@ const HomePage = () => {
       <ChatWidget />
       <Milestones />
       <FAQSection />
-      <Contact />
+      <Contact /> */}
+      {/* #1F42A6 */}
     </div>
   );
 };

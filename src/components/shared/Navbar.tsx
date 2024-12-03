@@ -24,14 +24,14 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav className="sticky top-0 max-w-7xl w-full mx-auto z-20">
+    <nav className="sticky top-0 w-full mx-auto z-20 ">
       {/* For large devices */}
       <motion.div
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className={`absolute w-full transition-all duration-300 ease-in-out flex justify-between items-center px-8 py-4 ${
-          scrolled ? "backdrop-blur-sm bg-white/85 shadow-lg" : "bg-transparent"
+        className={`absolute w-full transition-all duration-300 ease-in-out flex justify-between items-center px-8 py-4 bg-white/20 ${
+          scrolled ? "backdrop-blur-sm bg-white/90 " : "bg-transparent"
         }`}
       >
         <div className="flex items-center">
@@ -95,7 +95,7 @@ const Navbar = () => {
 
         <motion.button
           whileHover={{ translateY: -5 }}
-          className="bg-gradient-to-r from-teal-500 to-teal-600 text-white hidden md:block rounded-full font-medium py-2 px-6 shadow-lg"
+          className="btn hidden md:block"
         >
           <a href="#contact">Let`s Talk</a>
         </motion.button>

@@ -4,3 +4,25 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.btn {
+  background: linear-gradient(to right, #007bff, #00bfff);
+  color: white;
+  border: none;
+  border-radius: 9999px; /* Fully rounded for a pill shape */
+  font-weight: 500; /* Medium font weight */
+  padding: 5px 28px; /* Vertical and horizontal padding */
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.btn:hover {
+  transform: translateY(-2px); /* Slight lift effect */
+  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.15); /* More pronounced shadow */
+}
+
+.btn:active {
+  transform: scale(0.98); /* Slight press-down effect */
+}
