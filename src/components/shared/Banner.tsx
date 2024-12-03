@@ -3,7 +3,7 @@ import backgroundImg from "@/assets/background.png";
 
 const Banner = () => {
   return (
-    <div className="relative grid grid-cols-1 md:grid-cols-2 items-center text-white md:px-0 px-4 md:pl-10 py-2 md:py-10 rounded-b-lg shadow-lg h-full md:h-[800px] overflow-hidden">
+    <div className="relative grid grid-cols-1 md:grid-cols-2 items-center text-white md:px-0 px-4 md:pl-10 py-2 md:py-10 rounded-b-lg shadow-lg h-[600px] sm:h-[800px] overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0 -z-10">
         <Image

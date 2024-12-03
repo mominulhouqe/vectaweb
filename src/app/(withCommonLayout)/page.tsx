@@ -1,3 +1,4 @@
+import OurBrand from "@/components/component/OurBrand";
 import Banner from "@/components/shared/Banner";
 import AnimatedBackground from "@/components/ui/AnimatedBackground";
 import ChatWidget from "@/components/ui/ChatWidget";
@@ -30,6 +31,7 @@ const HomePage = () => {
       <FAQSection />
       <Contact /> */}
       {/* #1F42A6 */}
+      <OurBrand />
     </div>
   );
 };
