@@ -74,7 +74,7 @@ const Navbar = () => {
               <motion.ul
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="absolute top-full left-0 bg-white shadow-lg rounded-lg p-4 space-y-2 w-52 text-wrap"
+                className="absolute top-full left-0 bg-white shadow-lg rounded-lg p-4 space-y-2 w-60 text-wrap"
               >
                 <li>
                   <a
@@ -153,11 +153,31 @@ const Navbar = () => {
               <motion.ul
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="absolute top-full left-0 bg-white shadow-lg rounded-lg p-4 space-y-2 w-48"
+                className="absolute top-full left-0 bg-white shadow-lg rounded-lg p-4 space-y-2 w-56"
               >
                 <li>
-                  <Link href="/web-dev" className="hover:text-blue-600">
+                  <Link href="/" className="hover:text-blue-600">
+                    Software Development
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/" className="hover:text-blue-600">
                     Web Development
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/" className="hover:text-blue-600">
+                    App Development
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/" className="hover:text-blue-600">
+                    UI/UX Design
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/" className="hover:text-blue-600">
+                    Digital Marketing
                   </Link>
                 </li>
               </motion.ul>
