@@ -3,6 +3,8 @@ import { Roboto } from "next/font/google";
 import "./globals.css";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v13-appRouter";
 import Providers from "@/lib/Providers/Providers";
+import Navbar from "@/components/shared/Navbar";
+import Footer from "@/components/shared/Footer";
 
 const roboto = Roboto({
   weight: "400",
@@ -26,7 +28,9 @@ export default function RootLayout({
     <Providers>
       <html lang="en" data-theme="light">
         <body className={roboto.className}>
+          <Navbar />
           <AppRouterCacheProvider>{children}</AppRouterCacheProvider>
+          <Footer />
         </body>
       </html>
     </Providers>

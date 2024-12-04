@@ -37,17 +37,6 @@ const OurTeam = () => {
   return (
     <div>
       <section id="about" className="max-w-7xl w-full mx-auto px-6 py-12">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-teal-600">
-            Meet Our Team
-          </h2>
-          <p className="text-lg font-light max-w-2xl mx-auto text-gray-600">
-            Our software development team is a passionate group of experts
-            crafting innovative solutions, delivering excellence in every line
-            of code.
-          </p>
-        </div>
-
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {teamMembers.map((member) => (
             <div

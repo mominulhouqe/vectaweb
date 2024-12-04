@@ -23,68 +23,75 @@ const categories = [
   {
     id: "2",
     icon: <FaMobileAlt className="text-4xl text-green-500" />,
+    name: "Web Development",
+    description:
+      "Build intuitive, high-performance web applications that make an impact across devices.",
+  },
+  {
+    id: "3",
+    icon: <FaMobileAlt className="text-4xl text-green-500" />,
     name: "App Development",
     description:
       "Build intuitive, high-performance mobile applications that make an impact across devices.",
   },
   {
-    id: "3",
+    id: "4",
     icon: <FaBullhorn className="text-4xl text-yellow-500" />,
     name: "Digital Marketing",
     description:
       "Implement innovative digital marketing strategies to amplify your brand’s reach and engagement.",
   },
   {
-    id: "4",
+    id: "5",
     icon: <FaRobot className="text-4xl text-blue-500" />,
     name: "AI Development",
     description:
       "Leverage the power of artificial intelligence to create smarter solutions that transform industries.",
   },
   {
-    id: "5",
+    id: "6",
     icon: <FaPaintBrush className="text-4xl text-purple-500" />,
     name: "Graphic Design",
     description:
       "Create visually compelling designs that communicate your brand’s message and identity effectively.",
   },
   {
-    id: "6",
+    id: "7",
     icon: <FaVideo className="text-4xl text-red-500" />,
     name: "Video Editing",
     description:
       "Transform raw footage into captivating visual stories that engage, inform, and entertain audiences.",
   },
   {
-    id: "7",
+    id: "8",
     icon: <FaTasks className="text-4xl text-orange-500" />,
     name: "Project Management",
     description:
       "Manage projects from start to finish, ensuring timely delivery and successful outcomes for clients.",
   },
   {
-    id: "8",
+    id: "9",
     icon: <FaChartLine className="text-4xl text-teal-500" />,
     name: "Sales",
     description:
       "Drive revenue and growth through effective sales strategies, building strong client relationships.",
   },
   {
-    id: "9",
+    id: "10",
     icon: <FaUserAlt className="text-4xl text-pink-500" />,
     name: "UI/UX Design",
     description:
       "Design user-friendly interfaces and seamless experiences to enhance customer satisfaction and engagement.",
   },
   {
-    id: "10",
+    id: "11",
     icon: <FaSearch className="text-4xl text-indigo-500" />,
     name: "Research",
     description:
       "Explore new ideas and opportunities through comprehensive research, delivering insights to guide strategy.",
   },
   {
-    id: "11",
+    id: "12",
     icon: <FaShieldAlt className="text-4xl text-gray-500" />,
     name: "Security",
     description:

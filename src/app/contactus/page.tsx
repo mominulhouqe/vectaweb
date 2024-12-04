@@ -1,9 +1,12 @@
+import { TextareaAutosize } from "@mui/material";
+import Image from "next/image";
+
 const Contactus = () => {
   return (
     <div>
       <section
         id="contact"
-        className="relative  w-full mt-4 bg-gray-100 mx-auto "
+        className="relative w-full mt-4 bg-gray-100 mx-auto "
       >
         <div className="w-full h-full  ">
           <div className="md:w-4/5 w-full mx-auto h-full flex flex-col md:flex-row justify-center items-center gap-4 py-4 md:py-12 px-6 md:px-0">
